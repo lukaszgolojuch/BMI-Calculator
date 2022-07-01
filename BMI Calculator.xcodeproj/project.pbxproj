@@ -14,6 +14,8 @@
 		898D9E8F28591AAB000E8937 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 898D9E8E28591AAB000E8937 /* Preview Assets.xcassets */; };
 		899F2C91285DD9FF004C2278 /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2C90285DD9FF004C2278 /* SecondView.swift */; };
 		89BCC5E5285B489E0016710E /* Calculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BCC5E4285B489E0016710E /* Calculations.swift */; };
+		89C8B707286F8ED2006EADBB /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C8B706286F8ED2006EADBB /* PieChartView.swift */; };
+		89C8B709286F8EFA006EADBB /* PieSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C8B708286F8EFA006EADBB /* PieSliceView.swift */; };
 		89FA8B3C286E33340052FD7F /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FA8B3B286E33340052FD7F /* ResultView.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +28,8 @@
 		898D9E8E28591AAB000E8937 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		899F2C90285DD9FF004C2278 /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
 		89BCC5E4285B489E0016710E /* Calculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculations.swift; sourceTree = "<group>"; };
+		89C8B706286F8ED2006EADBB /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		89C8B708286F8EFA006EADBB /* PieSliceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieSliceView.swift; sourceTree = "<group>"; };
 		89FA8B3B286E33340052FD7F /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -45,6 +49,7 @@
 			children = (
 				898D9E8628591AA9000E8937 /* BMI Calculator */,
 				898D9E8528591AA9000E8937 /* Products */,
+				89C8B701286F8CE0006EADBB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +85,7 @@
 		898D9E9528591AC6000E8937 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				89C8B705286F8EAB006EADBB /* Additional Views */,
 				898D9E8928591AA9000E8937 /* MainView.swift */,
 				899F2C90285DD9FF004C2278 /* SecondView.swift */,
 				89FA8B3B286E33340052FD7F /* ResultView.swift */,
@@ -103,6 +109,22 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		89C8B701286F8CE0006EADBB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		89C8B705286F8EAB006EADBB /* Additional Views */ = {
+			isa = PBXGroup;
+			children = (
+				89C8B706286F8ED2006EADBB /* PieChartView.swift */,
+				89C8B708286F8EFA006EADBB /* PieSliceView.swift */,
+			);
+			path = "Additional Views";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,6 +141,8 @@
 			dependencies = (
 			);
 			name = "BMI Calculator";
+			packageProductDependencies = (
+			);
 			productName = "BMI Calculator";
 			productReference = 898D9E8428591AA9000E8937 /* BMI Calculator.app */;
 			productType = "com.apple.product-type.application";
@@ -147,6 +171,9 @@
 				Base,
 			);
 			mainGroup = 898D9E7B28591AA9000E8937;
+			packageReferences = (
+				89C8B702286F8D02006EADBB /* XCRemoteSwiftPackageReference "SwiftPieChart" */,
+			);
 			productRefGroup = 898D9E8528591AA9000E8937 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -173,11 +200,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89C8B707286F8ED2006EADBB /* PieChartView.swift in Sources */,
 				898D9E8A28591AA9000E8937 /* MainView.swift in Sources */,
 				899F2C91285DD9FF004C2278 /* SecondView.swift in Sources */,
 				8925BF75285A176D002434A6 /* Colors.swift in Sources */,
 				898D9E8828591AA9000E8937 /* BMI_CalculatorApp.swift in Sources */,
 				89BCC5E5285B489E0016710E /* Calculations.swift in Sources */,
+				89C8B709286F8EFA006EADBB /* PieSliceView.swift in Sources */,
 				89FA8B3C286E33340052FD7F /* ResultView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,6 +408,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		89C8B702286F8D02006EADBB /* XCRemoteSwiftPackageReference "SwiftPieChart" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ilamanov/SwiftPieChart";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 898D9E7C28591AA9000E8937 /* Project object */;
 }

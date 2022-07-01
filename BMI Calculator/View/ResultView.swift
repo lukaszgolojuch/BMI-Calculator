@@ -65,6 +65,8 @@ struct ResultView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
                     .shadow(radius: 10)
                     .padding()
+                    
+                    PieChartView(values: [1300, 500, 300], names: ["Protein", "Fat ", "Carbs"], formatter: {value in String(format: "%.0f kcal", value)})
                 }
             }
         }

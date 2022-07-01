@@ -64,7 +64,7 @@ struct SecondView: View {
                 Spacer()
                 
                 NavigationLink {
-                    //ResultView()
+                    ResultView()
                 } label: {
                     Text("Calculate")
                 }
