@@ -76,18 +76,18 @@ struct MainView: View {
                         Text("Height")
                             .font(.custom("AppleSDGothicNeo-Light", size: 18))
                             .foregroundColor(Color(colors.darkBlueColor))
-//                        HStack{
-//                            Slider(value: $height, in: 100...230) {
-//                                Text("\(height)")
-//                                    .font(.custom("ArialHebrew", size: 50))
-//                            }
-//                            .padding()
-//
-//                            Text("\(Int(height)) cm")
-//                                .font(.custom("ArialHebrew", size: 30))
-//                                .padding()
-//                                .foregroundColor(Color(colors.darkBlueColor))
-//                        }
+                        HStack{
+                            Slider(value: $height, in: 100...230) {
+                                Text("\(height)")
+                                    .font(.custom("ArialHebrew", size: 50))
+                            }
+                            .padding()
+
+                            Text("\(Int(height)) cm")
+                                .font(.custom("ArialHebrew", size: 30))
+                                .padding()
+                                .foregroundColor(Color(colors.darkBlueColor))
+                        }
                 
                     }
                     .frame(width: 380, height: 150, alignment: .center)
@@ -137,6 +137,7 @@ struct MainView: View {
                 }
                 .padding()
             }
+            .navigationBarTitle("BMI Calculator")
         }
         .edgesIgnoringSafeArea(.all)
     }

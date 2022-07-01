@@ -63,12 +63,16 @@ struct SecondView: View {
                 
                 Spacer()
                 
-                Button("Calculate") {}
-                    .tint(Color(colors.darkBlueColor))
-                    .buttonStyle(.bordered)
-                    .buttonBorderShape(.capsule)
-                    .controlSize(.large)
-                    .padding()
+                NavigationLink {
+                    //ResultView()
+                } label: {
+                    Text("Calculate")
+                }
+                .tint(Color(colors.darkBlueColor))
+                .buttonStyle(.bordered)
+                .buttonBorderShape(.capsule)
+                .controlSize(.large)
+                .padding()
             }
             .padding()
         }
