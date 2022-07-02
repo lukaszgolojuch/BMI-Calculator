@@ -9,23 +9,43 @@ import Foundation
 
 class calculations{
     
-    func calculateBmi(weight: Int, height: Float) -> Float {
-        let BMI: Float = Float(weight) / (height * height)
+    func calculateBMR(gender: Bool, weight: Int, height: Int, age: Int) -> Int{
         
-        return BMI
-    }
-    
-    func calculatePPM(weight: Int, height: Float, age: Int, gender: Bool) -> Float {
-        var PPM: Float
+        var BMR: Float
         
         if gender {
-            //for female
-            PPM = 10 * Float(weight) + 6.25 * height - 5 * Float(age) - 161
+            BMR = 447.593 + (9.247 * Float(weight)) + (3.098 * Float(height)) - (4.330 * Float(age))
         }
         else {
-            //for male
-            PPM = 10 * Float(weight) + 6.25 * height - 5 * Float(age) + 5
+            BMR = 88.362 + (13.397 * Float(weight)) + (4.799 * Float(height)) - (5.677 * Float(age))
         }
-        return PPM
+        return Int(BMR)
+    }
+    
+    func calculateCaloricDemand(BMR: Int, activityType: String) -> Int{
+        
+        var caloricDemand: Float
+        
+        return 2
+    }
+    
+    func calculateShouldConsume(caloricDemand: Int, goal: String) -> Int{
+        
+        var shouldConsume: Float
+        
+        return 2
+    }
+    
+    func calculateMacroelements(shouldConsume: Int, goal: String) -> Macroelements{
+        
+        var carbsKcal: Float
+        var proteinKcal: Float
+        var fatKcal: Float
+        
+        
+        
+        return Macroelements(carbsKcal: 100,
+                             proteinKcal: 100,
+                             fatKcal: 100)
     }
 }

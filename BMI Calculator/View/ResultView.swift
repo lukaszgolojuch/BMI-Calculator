@@ -13,7 +13,10 @@ struct ResultView: View {
     
     @State private var bmr: Int = 1000
     @State private var caloricDemand: Int = 1000
-    @State private var shouldConsume: Int = 1000
+    @State private var shouldConsume: Int = 1700
+    @State private var carbsKcal: Int = 1000
+    @State private var proteinKcal: Int = 600
+    @State private var fatKcal: Int = 100
     
     
     var body: some View {
