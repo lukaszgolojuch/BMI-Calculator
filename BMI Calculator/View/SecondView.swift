@@ -9,8 +9,12 @@ import SwiftUI
 
 struct SecondView: View {
     
-    private var colors = Colors()
+    var BMR: Int
+    var colors = Colors()
     @State private var number: Int = 1
+    
+    @State private var selectedActivityLevel: ActivityLevel = .thirdLevel
+    @State private var selectedGoal: Goal = .weightGain
     
     var body: some View {
         ZStack{
@@ -22,14 +26,12 @@ struct SecondView: View {
                         .font(.custom("AppleSDGothicNeo-Light", size: 18))
                         .foregroundColor(Color(colors.darkBlueColor))
                     
-                    Picker(selection: .constant(3), label: Text("")) {
-                        Text("Stationary").tag(1)
-                        Text("Exercise 1-3 times a week").tag(2)
-                        Text("Exercise 4-5 times a week").tag(3)
-                        Text("Daily exercise or intense exercise 3-4 times/week").tag(4)
-                        Text("Intense exercise 6-7 times/week").tag(5)
-                        Text("Very intense exercise daily, or physical job").tag(6)
-                    }
+                    Picker(selection: $selectedActivityLevel, label: Text("Activity level")) {
+                                ForEach(Array(ActivityLevel.allCases), id: \.self) {
+                                    Text($0.rawValue)
+                                }
+                            }
+                    .labelsHidden()
                     .pickerStyle(.wheel)
                     .frame(width: .infinity)
                     .clipped()
@@ -46,11 +48,12 @@ struct SecondView: View {
                         .foregroundColor(Color(colors.darkBlueColor))
                     
                     
-                    Picker(selection: .constant(2), label: Text("")) {
-                        Text("Maintaining body weight").tag(1)
-                        Text("Weight gain").tag(2)
-                        Text("Weight loss").tag(3)
-                    }
+                    Picker(selection: $selectedGoal, label: Text("Goal")) {
+                                ForEach(Array(Goal.allCases), id: \.self) {
+                                    Text($0.rawValue)
+                                }
+                            }
+                    .labelsHidden()
                     .pickerStyle(.wheel)
                     .frame(width: .infinity)
                     .clipped()
@@ -81,6 +84,6 @@ struct SecondView: View {
 
 struct SecondView_Previews: PreviewProvider {
     static var previews: some View {
-        SecondView()
+        SecondView(BMR: 100)
     }
 }

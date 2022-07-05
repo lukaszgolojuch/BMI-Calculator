@@ -18,6 +18,7 @@ struct MainView: View {
     @State private var gender: Bool = true
     
     private var colors = Colors()
+    @State private var calculations = Calculations()
     
     var body: some View {
         NavigationView{
@@ -125,7 +126,7 @@ struct MainView: View {
                     Spacer()
                     
                     NavigationLink {
-                        SecondView()
+                        SecondView(BMR: calculations.calculateBMR(gender: gender, weight: weight, height: Int(height), age: age))
                     } label: {
                         Text("Next Step")
                     }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class calculations{
+class Calculations{
     
     func calculateBMR(gender: Bool, weight: Int, height: Int, age: Int) -> Int{
         
@@ -22,30 +22,70 @@ class calculations{
         return Int(BMR)
     }
     
-    func calculateCaloricDemand(BMR: Int, activityType: String) -> Int{
+    func calculateCaloricDemand(BMR: Int, activityType: ActivityLevel) -> Int{
         
+        let FloatBMR: Float = Float(BMR)
         var caloricDemand: Float
         
-        return 2
+        switch activityType {
+        case .firstLevel:
+            caloricDemand = FloatBMR * 1.0
+        case .secondLevel:
+            caloricDemand = FloatBMR * 1.2
+        case .thirdLevel:
+            caloricDemand = FloatBMR * 1.4
+        case .fourthLevel:
+            caloricDemand = FloatBMR * 1.6
+        case .fifthLevel:
+            caloricDemand = FloatBMR * 1.8
+        case .sixthLevel:
+            caloricDemand = FloatBMR * 2.0
+        }
+        
+        return Int(caloricDemand)
     }
     
-    func calculateShouldConsume(caloricDemand: Int, goal: String) -> Int{
+    func calculateShouldConsume(caloricDemand: Int, goal: Goal) -> Int{
         
+        let caloricDemandFloat: Float = Float(caloricDemand)
         var shouldConsume: Float
         
-        return 2
+        switch goal {
+        case .weightGain:
+            shouldConsume = caloricDemandFloat * 1.15
+        case .weightLoss:
+            shouldConsume = caloricDemandFloat * 0.85
+        case .maintain:
+            shouldConsume = caloricDemandFloat
+        }
+        
+        return Int(shouldConsume)
     }
     
-    func calculateMacroelements(shouldConsume: Int, goal: String) -> Macroelements{
+    func calculateMacroelements(shouldConsume: Int, goal: Goal) -> Macroelements{
         
+        let shouldConsumeFloat: Float = Float(shouldConsume)
         var carbsKcal: Float
         var proteinKcal: Float
         var fatKcal: Float
         
+        switch goal {
+        case .maintain:
+            carbsKcal = 0.35 * shouldConsumeFloat
+            proteinKcal = 0.30 * shouldConsumeFloat
+            fatKcal = 0.35 * shouldConsumeFloat
+        case .weightLoss:
+            carbsKcal = 0.55 * shouldConsumeFloat
+            proteinKcal = 0.15 * shouldConsumeFloat
+            fatKcal = 0.30 * shouldConsumeFloat
+        case .weightGain:
+            carbsKcal = 0.15 * shouldConsumeFloat
+            proteinKcal = 0.55 * shouldConsumeFloat
+            fatKcal = 0.30 * shouldConsumeFloat
+        }
         
-        
-        return Macroelements(carbsKcal: 100,
-                             proteinKcal: 100,
-                             fatKcal: 100)
+        return Macroelements(carbsKcal: Int(carbsKcal),
+                             proteinKcal: Int(proteinKcal),
+                             fatKcal: Int(fatKcal))
     }
 }
