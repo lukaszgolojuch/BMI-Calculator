@@ -17,8 +17,7 @@ struct ResultView: View {
             Color(colors.backgroundColor).edgesIgnoringSafeArea(.all)
             ScrollView{
                 VStack{
-                    VStack{
-                        Text("BMR")
+                    Text("BMR")
                             .font(.custom("AppleSDGothicNeo-Light", size: 25))
                             .foregroundColor(Color(colors.darkBlueColor))
                         Text("\(String(personalData.bmr)) kcal")
@@ -46,7 +45,7 @@ struct ResultView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
                     .shadow(radius: 10)
                     .padding()
-                    
+
                     VStack{
                         Text("You should consume")
                             .font(.custom("AppleSDGothicNeo-Light", size: 25))
@@ -62,8 +61,6 @@ struct ResultView: View {
                     .shadow(radius: 10)
                     .padding()
                     
-                    PieChartView(values: [Double(personalData.macroelements.proteinKcal), Double(personalData.macroelements.fatKcal), Double(personalData.macroelements.carbsKcal)], names: ["Protein", "Fat ", "Carbs"], formatter: {value in String(format: "%.0f kcal", value)})
-                }
             }
         }
     }
