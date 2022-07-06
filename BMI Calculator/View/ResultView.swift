@@ -9,15 +9,8 @@ import SwiftUI
 
 struct ResultView: View {
     
-    private var colors = Colors()
-    
-    @State private var bmr: Int = 1000
-    @State private var caloricDemand: Int = 1000
-    @State private var shouldConsume: Int = 1700
-    @State private var carbsKcal: Int = 1000
-    @State private var proteinKcal: Int = 600
-    @State private var fatKcal: Int = 100
-    
+    let colors = Colors()
+    let personalData: PersonalData
     
     var body: some View {
         ZStack{
@@ -28,7 +21,7 @@ struct ResultView: View {
                         Text("BMR")
                             .font(.custom("AppleSDGothicNeo-Light", size: 25))
                             .foregroundColor(Color(colors.darkBlueColor))
-                        Text("\(String(bmr)) kcal")
+                        Text("\(String(personalData.bmr)) kcal")
                             .padding()
                             .font(.custom("ArialHebrew", size: 50))
                             .foregroundColor(Color(colors.darkBlueColor))
@@ -43,7 +36,7 @@ struct ResultView: View {
                         Text("Your caloric demand")
                             .font(.custom("AppleSDGothicNeo-Light", size: 25))
                             .foregroundColor(Color(colors.darkBlueColor))
-                        Text("2000 kcal")
+                        Text("\(String(personalData.caloricDemand)) kcal")
                             .padding()
                             .font(.custom("ArialHebrew", size: 50))
                             .foregroundColor(Color(colors.darkBlueColor))
@@ -58,7 +51,7 @@ struct ResultView: View {
                         Text("You should consume")
                             .font(.custom("AppleSDGothicNeo-Light", size: 25))
                             .foregroundColor(Color(colors.darkBlueColor))
-                        Text("1200 kcal")
+                        Text("\(String(personalData.shouldConsume)) kcal")
                             .padding()
                             .font(.custom("ArialHebrew", size: 50))
                             .foregroundColor(Color(colors.darkBlueColor))
@@ -69,7 +62,7 @@ struct ResultView: View {
                     .shadow(radius: 10)
                     .padding()
                     
-                    PieChartView(values: [1300, 500, 300], names: ["Protein", "Fat ", "Carbs"], formatter: {value in String(format: "%.0f kcal", value)})
+                    PieChartView(values: [Double(personalData.macroelements.proteinKcal), Double(personalData.macroelements.fatKcal), Double(personalData.macroelements.carbsKcal)], names: ["Protein", "Fat ", "Carbs"], formatter: {value in String(format: "%.0f kcal", value)})
                 }
             }
         }
@@ -78,6 +71,6 @@ struct ResultView: View {
 
 struct ResultView_Previews: PreviewProvider {
     static var previews: some View {
-        ResultView()
+        ResultView(personalData: PersonalData(Bmr: 1000, Gender: true, Weight: 75, Height: 180, Age: 22, ActivityType: .sixthLevel, Goal: .weightLoss))
     }
 }

@@ -126,7 +126,9 @@ struct MainView: View {
                     Spacer()
                     
                     NavigationLink {
-                        SecondView(BMR: calculations.calculateBMR(gender: gender, weight: weight, height: Int(height), age: age))
+                        
+                        SecondView(BMR: calculations.calculateBMR(gender: gender, weight: weight, height: Int(height), age: age), age: age, weight: weight, height: height, gender: gender)
+                        
                     } label: {
                         Text("Next Step")
                     }

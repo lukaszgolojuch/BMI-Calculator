@@ -10,6 +10,11 @@ import SwiftUI
 struct SecondView: View {
     
     var BMR: Int
+    var age: Int
+    var weight: Int
+    var height: Float
+    var gender: Bool
+    
     var colors = Colors()
     @State private var number: Int = 1
     
@@ -67,7 +72,7 @@ struct SecondView: View {
                 Spacer()
                 
                 NavigationLink {
-                    ResultView()
+                    ResultView(personalData: PersonalData(Bmr: BMR, Gender: gender, Weight: weight, Height: Int(height), Age: age, ActivityType: .sixthLevel, Goal: .weightLoss))
                 } label: {
                     Text("Calculate")
                 }
@@ -84,6 +89,6 @@ struct SecondView: View {
 
 struct SecondView_Previews: PreviewProvider {
     static var previews: some View {
-        SecondView(BMR: 100)
+        SecondView(BMR: 100, age: 22, weight: 75, height: 180, gender: true)
     }
 }
