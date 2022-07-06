@@ -15,8 +15,6 @@
 		89937BA52873A5D8007A36FC /* QuestionEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89937BA42873A5D8007A36FC /* QuestionEnums.swift */; };
 		899F2C91285DD9FF004C2278 /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2C90285DD9FF004C2278 /* SecondView.swift */; };
 		89BCC5E5285B489E0016710E /* Calculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BCC5E4285B489E0016710E /* Calculations.swift */; };
-		89C8B707286F8ED2006EADBB /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C8B706286F8ED2006EADBB /* PieChartView.swift */; };
-		89C8B709286F8EFA006EADBB /* PieSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C8B708286F8EFA006EADBB /* PieSliceView.swift */; };
 		89C8B70B286F9B42006EADBB /* PersonalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C8B70A286F9B42006EADBB /* PersonalData.swift */; };
 		89C8B70D286F9C24006EADBB /* Macroelements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C8B70C286F9C24006EADBB /* Macroelements.swift */; };
 		89FA8B3C286E33340052FD7F /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FA8B3B286E33340052FD7F /* ResultView.swift */; };
@@ -32,8 +30,6 @@
 		89937BA42873A5D8007A36FC /* QuestionEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionEnums.swift; sourceTree = "<group>"; };
 		899F2C90285DD9FF004C2278 /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
 		89BCC5E4285B489E0016710E /* Calculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculations.swift; sourceTree = "<group>"; };
-		89C8B706286F8ED2006EADBB /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
-		89C8B708286F8EFA006EADBB /* PieSliceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieSliceView.swift; sourceTree = "<group>"; };
 		89C8B70A286F9B42006EADBB /* PersonalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalData.swift; sourceTree = "<group>"; };
 		89C8B70C286F9C24006EADBB /* Macroelements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macroelements.swift; sourceTree = "<group>"; };
 		89FA8B3B286E33340052FD7F /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
@@ -91,7 +87,6 @@
 		898D9E9528591AC6000E8937 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				89C8B705286F8EAB006EADBB /* SwiftPieChart */,
 				898D9E8928591AA9000E8937 /* MainView.swift */,
 				899F2C90285DD9FF004C2278 /* SecondView.swift */,
 				89FA8B3B286E33340052FD7F /* ResultView.swift */,
@@ -123,15 +118,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		89C8B705286F8EAB006EADBB /* SwiftPieChart */ = {
-			isa = PBXGroup;
-			children = (
-				89C8B706286F8ED2006EADBB /* PieChartView.swift */,
-				89C8B708286F8EFA006EADBB /* PieSliceView.swift */,
-			);
-			path = SwiftPieChart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,7 +195,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89C8B707286F8ED2006EADBB /* PieChartView.swift in Sources */,
 				89937BA52873A5D8007A36FC /* QuestionEnums.swift in Sources */,
 				898D9E8A28591AA9000E8937 /* MainView.swift in Sources */,
 				899F2C91285DD9FF004C2278 /* SecondView.swift in Sources */,
@@ -218,7 +203,6 @@
 				89C8B70D286F9C24006EADBB /* Macroelements.swift in Sources */,
 				89C8B70B286F9B42006EADBB /* PersonalData.swift in Sources */,
 				89BCC5E5285B489E0016710E /* Calculations.swift in Sources */,
-				89C8B709286F8EFA006EADBB /* PieSliceView.swift in Sources */,
 				89FA8B3C286E33340052FD7F /* ResultView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

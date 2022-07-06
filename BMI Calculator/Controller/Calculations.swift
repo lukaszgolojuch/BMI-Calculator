@@ -9,6 +9,11 @@ import Foundation
 
 class Calculations{
     
+    func calculateBMI(weight: Int, height: Int) -> Float{
+        
+        return Float(weight) / (Float(height) * Float(height))
+    }
+    
     func calculateBMR(gender: Bool, weight: Int, height: Int, age: Int) -> Int{
         
         var BMR: Float
