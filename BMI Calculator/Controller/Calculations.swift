@@ -9,11 +9,19 @@ import Foundation
 
 class Calculations{
     
+    /*
+     Method calculating BMI
+     */
     func calculateBMI(weight: Int, height: Int) -> Float{
         
-        return Float(weight) / (Float(height) * Float(height))
+        let heightInMeters: Float = Float(height)/100
+        
+        return Float(weight) / (heightInMeters * heightInMeters)
     }
     
+    /*
+     Method calculating BMR
+     */
     func calculateBMR(gender: Bool, weight: Int, height: Int, age: Int) -> Int{
         
         var BMR: Float
@@ -27,6 +35,9 @@ class Calculations{
         return Int(BMR)
     }
     
+    /*
+     Method calculating caloric demand
+     */
     func calculateCaloricDemand(BMR: Int, activityType: ActivityLevel) -> Int{
         
         let FloatBMR: Float = Float(BMR)
@@ -34,22 +45,31 @@ class Calculations{
         
         switch activityType {
         case .firstLevel:
+            //Stationary activity level
             caloricDemand = FloatBMR * 1.0
         case .secondLevel:
+            //Exercise 1-3 times a week
             caloricDemand = FloatBMR * 1.2
         case .thirdLevel:
+            //Exercise 4-5 times a week
             caloricDemand = FloatBMR * 1.4
         case .fourthLevel:
+            //Daily exercise
             caloricDemand = FloatBMR * 1.6
         case .fifthLevel:
+            //Daily intense exercise
             caloricDemand = FloatBMR * 1.8
         case .sixthLevel:
+            //Very intense exercise/phisical work
             caloricDemand = FloatBMR * 2.0
         }
         
         return Int(caloricDemand)
     }
     
+    /*
+     Method calculating how many calories should user consume to achive goal
+     */
     func calculateShouldConsume(caloricDemand: Int, goal: Goal) -> Int{
         
         let caloricDemandFloat: Float = Float(caloricDemand)
@@ -67,6 +87,9 @@ class Calculations{
         return Int(shouldConsume)
     }
     
+    /*
+     Method calculating makroelements in diet
+     */
     func calculateMacroelements(shouldConsume: Int, goal: Goal) -> Macroelements{
         
         let shouldConsumeFloat: Float = Float(shouldConsume)

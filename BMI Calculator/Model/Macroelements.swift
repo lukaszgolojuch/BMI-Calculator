@@ -2,6 +2,8 @@
 //  Macroelements.swift
 //  BMI Calculator
 //
+//  Macroelements struct
+//
 //  Created by Łukasz Gołojuch on 7/1/22.
 //
 

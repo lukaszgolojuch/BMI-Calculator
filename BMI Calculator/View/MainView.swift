@@ -24,121 +24,112 @@ struct MainView: View {
         NavigationView{
             ZStack{
                 Color(colors.backgroundColor).edgesIgnoringSafeArea(.all)
-                VStack{
-                    HStack(alignment: .center){
-                        VStack(alignment: .center){
-                            Text("Age")
-                                .font(.custom("AppleSDGothicNeo-Light", size: 18))
-                                .foregroundColor(Color(colors.darkBlueColor))
-                            Text("\(age)")
-                                .font(.custom("ArialHebrew", size: 50))
-                                .foregroundColor(Color(colors.darkBlueColor))
-                            HStack {
-                                Stepper("", value: $age, in: 1...100, step: 1)
-                                    .accentColor(Color(colors.additionalColor))
-                                    .foregroundColor(Color(colors.additionalColor))
-                                Spacer()
-                                Spacer()
-                                Spacer()
-                            }
-                            .padding(.trailing)
-                        }
-                        
-                        .frame(width: 170, height: 170, alignment: .center)
-                        .background(Color(colors.lightBlueColor))
-                        .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
-                        .shadow(radius: 10)
-                        .padding()
-                        
-                        Spacer()
-                        VStack(alignment: .center){
-                            Text("Weight")
-                                .font(.custom("AppleSDGothicNeo-Light", size: 18))
-                                .foregroundColor(Color(colors.darkBlueColor))
-                            Text("\(weight)")
-                                .font(.custom("ArialHebrew", size: 50))
-                                .foregroundColor(Color(colors.darkBlueColor))
-                            HStack {
-                                Stepper("", value: $weight, in: 20...250, step: 1)
-                                Spacer()
-                                Spacer()
-                                Spacer()
-                            }
-                            .padding(.trailing)
-                        }
-                        .frame(width: 170, height: 170, alignment: .center)
-                        .background(Color(colors.lightBlueColor))
-                        .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
-                        .shadow(radius: 10)
-                        .padding()
-                    }
-                    .padding()
+                ScrollView{
                     VStack{
-                        Text("Height")
-                            .font(.custom("AppleSDGothicNeo-Light", size: 18))
-                            .foregroundColor(Color(colors.darkBlueColor))
-                        HStack{
-                            Slider(value: $height, in: 100...230) {
-                                Text("\(height)")
+                        HStack(alignment: .center){
+                            VStack(alignment: .center){
+                                Text("Age")
+                                    .font(.custom("AppleSDGothicNeo-Light", size: 18))
+                                    .foregroundColor(Color(colors.darkBlueColor))
+                                Text("\(age)")
                                     .font(.custom("ArialHebrew", size: 50))
+                                    .foregroundColor(Color(colors.darkBlueColor))
+                                Stepper("", value: $age, in: 1...100, step: 1)
+                                    .labelsHidden()
                             }
+                            .frame(width: UIScreen.main.bounds.width * 0.40, height: 170, alignment: .center)
+                            .background(Color(colors.lightBlueColor))
+                            .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
+                            .shadow(radius: 10)
                             .padding()
+                            
+                            Spacer()
+                            VStack(alignment: .center){
+                                Text("Weight")
+                                    .font(.custom("AppleSDGothicNeo-Light", size: 18))
+                                    .foregroundColor(Color(colors.darkBlueColor))
+                                Text("\(weight)")
+                                    .font(.custom("ArialHebrew", size: 50))
+                                    .foregroundColor(Color(colors.darkBlueColor))
 
-                            Text("\(Int(height)) cm")
-                                .font(.custom("ArialHebrew", size: 30))
-                                .padding()
-                                .foregroundColor(Color(colors.darkBlueColor))
-                        }
-                
-                    }
-                    .frame(width: 380, height: 150, alignment: .center)
-                    .background(Color(colors.lightBlueColor))
-                    .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
-                    .shadow(radius: 10)
-                    .padding()
-                    VStack{
-                        Text("Gender")
-                            .font(.custom("AppleSDGothicNeo-Light", size: 18))
-                            .foregroundColor(Color(colors.darkBlueColor))
-                        HStack{
-                            Text("i'm")
-                                .font(.custom("AppleSDGothicNeo-MediumBold", size: 70))
-                                .bold()
-                                .foregroundColor(Color(colors.darkBlueColor))
-                            Text("male")
-                                .foregroundColor(Color(colors.darkBlueColor))
-                            Toggle(isOn: $gender){
-                                Text("")
-                            }.onChange(of: gender) { value in
-                                gender = value
+                                Stepper("", value: $weight, in: 20...250, step: 1)
+                                    .labelsHidden()
+
                             }
-                            .tint(Color(colors.additionalColor))
-                            .labelsHidden()
-                            Text("female")
-                                .foregroundColor(Color(colors.darkBlueColor))
+                            .frame(width: UIScreen.main.bounds.width * 0.40, height: 170, alignment: .center)
+                            .background(Color(colors.lightBlueColor))
+                            .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
+                            .shadow(radius: 10)
+                            .padding()
                         }
-                    }
-                    .frame(width: 380, height: 150, alignment: .center)
-                    .background(Color(colors.lightBlueColor))
-                    .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
-                    .shadow(radius: 10)
-                    .padding()
-                    Spacer()
+                        .padding()
+                        VStack{
+                            Text("Height")
+                                .font(.custom("AppleSDGothicNeo-Light", size: 18))
+                                .foregroundColor(Color(colors.darkBlueColor))
+                            HStack{
+                                Slider(value: $height, in: 100...230) {
+                                    Text("\(height)")
+                                        .font(.custom("ArialHebrew", size: 50))
+                                }
+                                .padding()
+
+                                Text("\(Int(height)) cm")
+                                    .font(.custom("ArialHebrew", size: 30))
+                                    .padding()
+                                    .foregroundColor(Color(colors.darkBlueColor))
+                            }
                     
-                    NavigationLink {
+                        }
+                        .frame(width: UIScreen.main.bounds.width * 0.90, height: 170, alignment: .center)
+                        .background(Color(colors.lightBlueColor))
+                        .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
+                        .shadow(radius: 10)
+                        .padding()
+                        VStack{
+                            Text("Gender")
+                                .font(.custom("AppleSDGothicNeo-Light", size: 18))
+                                .foregroundColor(Color(colors.darkBlueColor))
+                            HStack{
+                                Text("i'm")
+                                    .font(.custom("AppleSDGothicNeo-MediumBold", size: 70))
+                                    .bold()
+                                    .foregroundColor(Color(colors.darkBlueColor))
+                                Text("male")
+                                    .foregroundColor(Color(colors.darkBlueColor))
+                                Toggle(isOn: $gender){
+                                    Text("")
+                                }.onChange(of: gender) { value in
+                                    gender = value
+                                }
+                                .tint(Color(colors.additionalColor))
+                                .labelsHidden()
+                                Text("female")
+                                    .foregroundColor(Color(colors.darkBlueColor))
+                            }
+                        }
+                        .frame(width: UIScreen.main.bounds.width * 0.90, height: 170, alignment: .center)
+                        .background(Color(colors.lightBlueColor))
+                        .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
+                        .shadow(radius: 10)
+                        .padding()
+                        Spacer()
                         
-                        SecondView(BMR: calculations.calculateBMR(gender: gender, weight: weight, height: Int(height), age: age), age: age, weight: weight, height: height, gender: gender)
-                        
-                    } label: {
-                        Text("Next Step")
+                        NavigationLink {
+                            
+                            SecondView(BMR: calculations.calculateBMR(gender: gender, weight: weight, height: Int(height), age: age), age: age, weight: weight, height: height, gender: gender)
+                            
+                        } label: {
+                            Text("Next Step")
+                        }
+                        .tint(Color(colors.darkBlueColor))
+                        .buttonStyle(.bordered)
+                        .buttonBorderShape(.capsule)
+                        .controlSize(.large)
+                        .padding()
                     }
-                    .tint(Color(colors.darkBlueColor))
-                    .buttonStyle(.bordered)
-                    .buttonBorderShape(.capsule)
-                    .controlSize(.large)
                     .padding()
                 }
-                .padding()
             }
             .navigationBarTitle("BMI Calculator")
         }

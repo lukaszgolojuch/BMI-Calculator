@@ -21,7 +21,7 @@ struct ResultView: View {
                             Text("Your BMI")
                                 .font(.custom("AppleSDGothicNeo-Light", size: 30))
                                 .foregroundColor(Color(colors.darkBlueColor))
-                            Text("59")
+                            Text("\(Int(personalData.bmi))")
                                 .font(.custom("AppleSDGothicNeo-Bold", size: 60))
                                 .foregroundColor(Color(colors.darkBlueColor))
                         }
@@ -39,105 +39,27 @@ struct ResultView: View {
                                 Divider()
                                 
                                 HStack{
-                                    VStack(alignment: .center){
-                                        Text("BMR")
-                                            .font(.custom("AppleSDGothicNeo-Light", size: 18))
-                                            .foregroundColor(Color(colors.darkBlueColor))
-                                            
-                                        Text(String(personalData.bmr) + " kcal")
-                                            .font(.custom("ArialHebrew", size: 40))
-                                            .foregroundColor(Color(colors.darkBlueColor))
-                                            .lineLimit(0)
-                                    }
-                                    .frame(width: UIScreen.main.bounds.width * 0.5, height: 170, alignment: .center)
-                                    .background(Color(colors.lightBlueColor))
-                                    .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
-                                    .shadow(radius: 10)
-                                    .padding()
-                                    
-                                    VStack(alignment: .center){
-                                        Text("Carbohydrates")
-                                            .font(.custom("AppleSDGothicNeo-Light", size: 18))
-                                            .foregroundColor(Color(colors.darkBlueColor))
-                                        Text(String(personalData.macroelements.carbsKcal / 4) + " g")
-                                            .font(.custom("ArialHebrew", size: 25))
-                                            .foregroundColor(Color(colors.darkBlueColor))
-                                    }
-                                    .frame(width: UIScreen.main.bounds.width * 0.35, height: 170, alignment: .center)
-                                    .background(Color(colors.additionalColor))
-                                    .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
-                                    .shadow(radius: 10)
-                                    .padding()
+                                    BigVstackResult(labelText: "BMR", kcalValue: personalData.bmr)
+
+                                        
+                                    SmallVstackResult(labelText: "Carbohydrates", kcalValue: personalData.macroelements.carbsKcal)
                                 }
                                 
                                 HStack{
-                                    VStack(alignment: .center){
-                                        Text("Protein")
-                                            .font(.custom("AppleSDGothicNeo-Light", size: 18))
-                                            .foregroundColor(Color(colors.darkBlueColor))
-                                        Text(String(personalData.macroelements.proteinKcal / 4) + " g")
-                                            .font(.custom("ArialHebrew", size: 25))
-                                            .foregroundColor(Color(colors.darkBlueColor))
-                                    }
-                                    .frame(width: UIScreen.main.bounds.width * 0.35, height: 170, alignment: .center)
-                                    .background(Color(colors.additionalColor))
-                                    .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
-                                    .shadow(radius: 10)
-                                    .padding()
+                                    SmallVstackResult(labelText: "Protein", kcalValue: personalData.macroelements.proteinKcal)
                                     
-                                    VStack(alignment: .center){
-                                        Text("Caloric Demand")
-                                            .font(.custom("AppleSDGothicNeo-Light", size: 18))
-                                            .foregroundColor(Color(colors.darkBlueColor))
-                                            
-                                        Text(String(personalData.caloricDemand) + " kcal")
-                                            .font(.custom("ArialHebrew", size: 40))
-                                            .foregroundColor(Color(colors.darkBlueColor))
-                                            .lineLimit(0)
-                                    }
-                                    .frame(width: UIScreen.main.bounds.width * 0.5, height: 170, alignment: .center)
-                                    .background(Color(colors.lightBlueColor))
-                                    .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
-                                    .shadow(radius: 10)
-                                    .padding()
+                                    BigVstackResult(labelText: "Caloric Demand", kcalValue: personalData.caloricDemand)
                                 }
                                 
                                 HStack{
-                                    VStack(alignment: .center){
-                                        Text("Should Consume")
-                                            .font(.custom("AppleSDGothicNeo-Light", size: 18))
-                                            .foregroundColor(Color(colors.darkBlueColor))
-                                            
-                                        Text(String(personalData.shouldConsume) + " kcal")
-                                            .font(.custom("ArialHebrew", size: 40))
-                                            .foregroundColor(Color(colors.darkBlueColor))
-                                            .lineLimit(0)
-                                    }
-                                    .frame(width: UIScreen.main.bounds.width * 0.5, height: 170, alignment: .center)
-                                    .background(Color(colors.lightBlueColor))
-                                    .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
-                                    .shadow(radius: 10)
-                                    .padding()
+                                    BigVstackResult(labelText: "Should Consume", kcalValue: personalData.shouldConsume)
                                     
-                                    VStack(alignment: .center){
-                                        Text("Fat")
-                                            .font(.custom("AppleSDGothicNeo-Light", size: 18))
-                                            .foregroundColor(Color(colors.darkBlueColor))
-                                        Text(String(personalData.macroelements.fatKcal / 9) + " g")
-                                            .font(.custom("ArialHebrew", size: 25))
-                                            .foregroundColor(Color(colors.darkBlueColor))
-                                    }
-                                    .frame(width: UIScreen.main.bounds.width * 0.35, height: 170, alignment: .center)
-                                    .background(Color(colors.additionalColor))
-                                    .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
-                                    .shadow(radius: 10)
-                                    .padding()
+                                    SmallVstackResult(labelText: "Fat", kcalValue: personalData.macroelements.fatKcal)
                                 }
-                                
                                 Spacer()
                             }
                         }
-                        .frame(width: .infinity, height: getStackHeight(), alignment: .top)
+                        .frame(width: UIScreen.main.bounds.width, height: getStackHeight(), alignment: .top)
                         .background(Color.init(colors.backgroundColor))
                         .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
                         .overlay(RoundedRectangle(cornerRadius: 25.0, style: .continuous)

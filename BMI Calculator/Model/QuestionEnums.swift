@@ -2,6 +2,8 @@
 //  QuestionEnums.swift
 //  BMI Calculator
 //
+//  Enumerations for SecondView activity level and goal choosing
+//
 //  Created by Łukasz Gołojuch on 7/5/22.
 //
 

@@ -9,14 +9,13 @@ import SwiftUI
 
 struct SecondView: View {
     
+    private let colors = Colors()
+    
     var BMR: Int
     var age: Int
     var weight: Int
     var height: Float
     var gender: Bool
-    
-    var colors = Colors()
-    @State private var number: Int = 1
     
     @State private var selectedActivityLevel: ActivityLevel = .thirdLevel
     @State private var selectedGoal: Goal = .weightGain
@@ -25,64 +24,64 @@ struct SecondView: View {
         ZStack{
             Color(colors.backgroundColor).edgesIgnoringSafeArea(.all)
             
-            VStack{
+            ScrollView{
                 VStack{
-                    Text("Activity level")
-                        .font(.custom("AppleSDGothicNeo-Light", size: 18))
-                        .foregroundColor(Color(colors.darkBlueColor))
-                    
-                    Picker(selection: $selectedActivityLevel, label: Text("Activity level")) {
-                                ForEach(Array(ActivityLevel.allCases), id: \.self) {
-                                    Text($0.rawValue)
+                    VStack{
+                        Text("Activity level")
+                            .font(.custom("AppleSDGothicNeo-Light", size: 18))
+                            .foregroundColor(Color(colors.darkBlueColor))
+                        
+                        Picker(selection: $selectedActivityLevel, label: Text("Activity level")) {
+                                    ForEach(Array(ActivityLevel.allCases), id: \.self) {
+                                        Text($0.rawValue)
+                                    }
                                 }
-                            }
-                    .labelsHidden()
-                    .pickerStyle(.wheel)
-                    .frame(width: .infinity)
-                    .clipped()
-                }
-                .frame(width: 380, height: 300, alignment: .center)
-                .background(Color(colors.lightBlueColor))
-                .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
-                .shadow(radius: 10)
-                .padding()
-                
-                VStack{
-                    Text("Goal")
-                        .font(.custom("AppleSDGothicNeo-Light", size: 18))
-                        .foregroundColor(Color(colors.darkBlueColor))
+                        .labelsHidden()
+                        .pickerStyle(.wheel)
+                        .clipped()
+                    }
+                    .frame(width: UIScreen.main.bounds.width * 0.90, height: 300, alignment: .center)
+                    .background(Color(colors.lightBlueColor))
+                    .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
+                    .shadow(radius: 10)
+                    .padding()
                     
-                    
-                    Picker(selection: $selectedGoal, label: Text("Goal")) {
-                                ForEach(Array(Goal.allCases), id: \.self) {
-                                    Text($0.rawValue)
+                    VStack{
+                        Spacer()
+                        Text("Goal")
+                            .font(.custom("AppleSDGothicNeo-Light", size: 18))
+                            .foregroundColor(Color(colors.darkBlueColor))
+                        
+                        
+                        Picker(selection: $selectedGoal, label: Text("Goal")) {
+                                    ForEach(Array(Goal.allCases), id: \.self) {
+                                        Text($0.rawValue)
+                                    }
                                 }
-                            }
-                    .labelsHidden()
-                    .pickerStyle(.wheel)
-                    .frame(width: .infinity)
-                    .clipped()
+                        .padding()
+                        .labelsHidden()
+                        .pickerStyle(.wheel)
+                        .clipped()
+                    }
+                    .frame(width: UIScreen.main.bounds.width * 0.90, height: 300, alignment: .center)
+                    .background(Color(colors.lightBlueColor))
+                    .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
+                    .shadow(radius: 10)
+                    .padding()
+                                        
+                    NavigationLink {
+                        ResultView(personalData: PersonalData(Bmr: BMR, Gender: gender, Weight: weight, Height: Int(height), Age: age, ActivityType: selectedActivityLevel, Goal: selectedGoal))
+                    } label: {
+                        Text("Calculate")
+                    }
+                    .tint(Color(colors.darkBlueColor))
+                    .buttonStyle(.bordered)
+                    .buttonBorderShape(.capsule)
+                    .controlSize(.large)
+                    .padding()
                 }
-                .frame(width: 380, height: 300, alignment: .center)
-                .background(Color(colors.lightBlueColor))
-                .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
-                .shadow(radius: 10)
-                .padding()
-                
-                Spacer()
-                
-                NavigationLink {
-                    ResultView(personalData: PersonalData(Bmr: BMR, Gender: gender, Weight: weight, Height: Int(height), Age: age, ActivityType: .sixthLevel, Goal: .weightLoss))
-                } label: {
-                    Text("Calculate")
-                }
-                .tint(Color(colors.darkBlueColor))
-                .buttonStyle(.bordered)
-                .buttonBorderShape(.capsule)
-                .controlSize(.large)
                 .padding()
             }
-            .padding()
         }
     }
 }
