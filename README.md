@@ -7,7 +7,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/lukaszgolojuch/BMI-Calculator">
-    <img src="Images/logo.png" alt="Logo" width="80" height="80">
+    <img src="Images/512.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Diet Creator</h3>
@@ -48,13 +48,13 @@
 <img src="Images/screenshot.png" alt="Logo" width="270" height="585">
 <img src="Images/screenshot2.png" alt="Logo" width="270" height="585">
 
-Project is SwiftUI + Swift implementation of basic iOS calculator with additional features, that can make it better.
+Project is SwiftUI + Swift implementation of BMI calculator with additional Diet calculation functions
 
 Additional features:
-* Changing colors of buttons
-* You can set three colors for three types of buttons
-* You can change shape of button from squere to circle
-* Saving your configuration RealmDB
+* Diet calculations with target macroelements to consume
+* BMR calculations
+* Caloric demand calculations
+* Amount of calories user should consume to achieve goal
 
 Get started with this project and make your calculations colorfull
 
